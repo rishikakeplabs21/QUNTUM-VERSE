@@ -62,6 +62,24 @@ export const MentorPage: React.FC = () => {
     if (!questionToSend) setInputText('');
     setIsLoading(true);
 
+    if (!API_BASE) {
+      setTimeout(() => {
+        const fallbackData = getClientMentorResponse(q);
+        const fallbackMsg: ChatMessage = {
+          id: `bot-${Date.now()}`,
+          sender: 'assistant',
+          text: fallbackData.answer,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          provider: fallbackData.provider,
+          mode: fallbackData.mode,
+          notice: fallbackData.notice
+        };
+        setMessages((prev) => [...prev, fallbackMsg]);
+        setIsLoading(false);
+      }, 300);
+      return;
+    }
+
     try {
       const resp = await fetch(`${API_BASE}/api/mentor/ask`, {
         method: 'POST',

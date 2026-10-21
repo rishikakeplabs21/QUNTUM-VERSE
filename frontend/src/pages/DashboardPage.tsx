@@ -19,6 +19,7 @@ import {
 import { useQuantum } from '../context/QuantumContext';
 import { CURRICULUM_MODULES } from '../data/curriculumData';
 import { EXPERIMENTS_CATALOG } from '../data/experimentsData';
+import heroImg from '../assets/hero.png';
 
 export const DashboardPage: React.FC = () => {
   const { completedLessons, experimentRuns, savedCircuits, studentXP, studentBadges, backendOnline } = useQuantum();
@@ -61,6 +62,15 @@ export const DashboardPage: React.FC = () => {
               <span>Explore Physics Lab</span>
             </NavLink>
           </div>
+        </div>
+
+        {/* Quantum Hardware / Platform Visual Illustration */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center pointer-events-none">
+          <img
+            src={heroImg}
+            alt="Quantum Platform Architecture"
+            className="w-52 h-52 object-contain drop-shadow-[0_0_35px_rgba(56,189,248,0.3)] opacity-90"
+          />
         </div>
 
         {/* Decorative Grid Graphic in Background */}

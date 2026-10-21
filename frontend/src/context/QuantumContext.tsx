@@ -88,9 +88,13 @@ export const QuantumProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [activeRole, setActiveRole] = useState<'student' | 'faculty'>('student');
   const [backendOnline, setBackendOnline] = useState<boolean>(true);
 
-  // Check backend health periodically
+  // Check backend health periodically if an API base is configured
   useEffect(() => {
     const API_BASE = import.meta.env.VITE_API_URL || '';
+    if (!API_BASE) {
+      setBackendOnline(false);
+      return;
+    }
     const checkHealth = async () => {
       try {
         const resp = await fetch(`${API_BASE}/api/health`);

@@ -16,6 +16,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { useQuantum } from '../../context/QuantumContext';
+import logoImg from '../../assets/logo.svg';
 
 interface NavItem {
   name: string;
@@ -46,7 +47,7 @@ export const Sidebar: React.FC = () => {
       {/* Brand Header */}
       <div className="p-4 border-b border-sky-950/60 flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 via-indigo-500/20 to-amber-500/20 border border-cyan-400/30 flex items-center justify-center p-1.5 shadow-sm">
-          <img src="/logo.svg" alt="KEP QuantumVerse" className="w-full h-full object-contain" />
+          <img src={logoImg} alt="KEP QuantumVerse" className="w-full h-full object-contain" />
         </div>
         <div className="flex flex-col">
           <span className="font-bold text-base tracking-tight text-white flex items-center gap-1.5">
