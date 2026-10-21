@@ -1,0 +1,9 @@
+/* App-specific custom animations and utility styles */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
