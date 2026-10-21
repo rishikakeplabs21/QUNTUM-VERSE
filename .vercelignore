@@ -1,0 +1,7 @@
+cloudflared.exe
+*.zip
+*.bat
+backend/
+.pytest_cache/
+__pycache__/
+*.py

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QuantumProvider } from './context/QuantumContext';
 import { Sidebar } from './components/common/Sidebar';
 import { Header } from './components/common/Header';
@@ -19,7 +19,7 @@ import { PortfolioPage } from './pages/PortfolioPage';
 export const App: React.FC = () => {
   return (
     <QuantumProvider>
-      <BrowserRouter>
+      <HashRouter>
         <div className="flex h-screen w-screen overflow-hidden bg-[#070b14] text-slate-100 font-sans">
           {/* Persistent Sidebar Navigation */}
           <Sidebar />
@@ -46,7 +46,7 @@ export const App: React.FC = () => {
             </main>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </QuantumProvider>
   );
 };
